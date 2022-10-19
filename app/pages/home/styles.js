@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
       fontWeight: '700',
       textAlign: 'center',
       marginVertical: 18,
-      color: Colors.black,
    },
    text_information: {
       textAlign: 'center',
@@ -40,6 +39,18 @@ export const styles = StyleSheet.create({
       borderRadius: 220,
       borderColor: Colors.orange,
       backgroundColor: Colors.orange,
+   },
+
+   section_bouton_2: {
+      borderWidth: 2,
+      height: 220,
+      width: 220,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 50,
+      borderColor: Colors.secondary,
+      backgroundColor: Colors.secondary,
    },
 
    /*Shadow bouton*/
@@ -87,4 +98,39 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'flex-end',
    },
+
+   /*Shadow bouton*/
+   shadow_4: {
+      borderColor: 'rgba(153, 157, 236, 0.5)',
+      backgroundColor: 'rgba(153, 157, 236, 0.5)',
+      borderWidth: 1,
+      height: 250,
+      width: 250,
+      borderRadius: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+   },
+   shadow_5: {
+      borderColor: 'rgba(153, 157, 236, 0.3)',
+      backgroundColor: 'rgba(153, 157, 236, 0.3)',
+      borderWidth: 1,
+      height: 280,
+      width: 280,
+      borderRadius: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+   },
+   shadow_6: {
+      borderColor: 'rgba(153, 157, 236, 0.1)',
+      backgroundColor: 'rgba(153, 157, 236, 0.1)',
+      borderWidth: 1,
+      height: 310,
+      width: 310,
+      borderRadius: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 30,
+      marginBottom: 80,
+   },
+   /*FIn shadow bouton*/
 });

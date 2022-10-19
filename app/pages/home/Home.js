@@ -16,7 +16,12 @@ export default function Home({ navigation }) {
 
             <View style={styles.body_content}>
                <View>
-                  <Text style={styles.big_titre_information}>
+                  <Text
+                     style={[
+                        styles.big_titre_information,
+                        { color: Colors.orange },
+                     ]}
+                  >
                      Êtes-vous en danger en ce moment ?
                   </Text>
                   <Text style={styles.text_information}>
@@ -36,12 +41,38 @@ export default function Home({ navigation }) {
                   </View>
                </View>
 
-               <View style={styles.text_indication}>
+               {/*<View style={styles.text_indication}>
                   <Icon name={'warning'} color={Colors.orange} size={28} />
                   <Text style={{ textAlign: 'center' }}>
                      En cliquant sur "SOS" vous envoyerez des signals au poste
                      de police et contacts d'urgence!!!!!
                   </Text>
+               </View>*/}
+
+               <View>
+                  <Text
+                     style={[
+                        styles.big_titre_information,
+                        { color: Colors.secondary },
+                     ]}
+                  >
+                     Êtes-vous face à un évènement grave ?
+                  </Text>
+                  <Text style={styles.text_information}>
+                     Si vous voyez quelque chose de danger comme incendie
+                     etc..., alertez nous !!!
+                  </Text>
+               </View>
+               <View style={styles.shadow_6}>
+                  <View style={styles.shadow_5}>
+                     <View style={styles.shadow_4}>
+                        <TouchableOpacity activeOpacity={0.8}>
+                           <View style={styles.section_bouton_2}>
+                              <Text style={styles.bouton_sos}>HELP</Text>
+                           </View>
+                        </TouchableOpacity>
+                     </View>
+                  </View>
                </View>
             </View>
          </View>
