@@ -5,4 +5,5 @@ export const Colors = {
    black: '#1E2944',
    secondary: '#999DEC',
    orange: '#E34729',
+   background: 'white',
 };

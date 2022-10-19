@@ -26,15 +26,23 @@ export const styles = StyleSheet.create({
    },
    label_information_profil: {
       color: Colors.grey,
-      fontSize: 18,
+      fontSize: 16,
+      marginTop: 30,
    },
    value_information_profil: {
       color: Colors.black,
       fontWeight: 'bold',
-      fontSize: 20,
+      fontSize: 18,
+   },
+   view_value_information: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'flex-end',
       borderBottomWidth: 1,
       borderBottomColor: Colors.grey,
-      marginBottom: 30,
+   },
+   validation_value: {
+      color: 'green',
    },
    footer_profil: {
       flex: 1,
@@ -54,7 +62,7 @@ export const styles = StyleSheet.create({
    bouton: {
       padding: 15,
       borderRadius: 25,
-      width: 150,
+      width: 250,
       marginTop: 25,
    },
 });

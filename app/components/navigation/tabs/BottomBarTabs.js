@@ -15,7 +15,7 @@ export default function BottomBarTabs() {
          screenOptions={{
             headerShown: false,
             tabBarInactiveTintColors: Colors.black,
-            tabBarActiveTintColors: Colors.purple,
+            tabBarActiveTintColors: Colors.blue,
             tabBarLabelStyle: { fontSize: 13, textTransform: 'capitalize' },
             tabBarStyle: styles.tabBarStyles,
          }}
