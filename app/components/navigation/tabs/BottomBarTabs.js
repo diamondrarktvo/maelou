@@ -4,7 +4,7 @@ import { Colors } from '_theme/Colors';
 import { Icon } from '@rneui/themed';
 
 //import screen bottom tab
-import { Home, Help, Profil } from '_pages';
+import { Home, Help, Contact } from '_pages';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,12 +45,12 @@ export default function BottomBarTabs() {
             }}
          />
          <Tab.Screen
-            name="Profil"
-            component={Profil}
+            name="Contact"
+            component={Contact}
             options={{
-               tabBarLabel: 'Profile',
+               tabBarLabel: 'Contact',
                tabBarIcon: ({ size, color }) => (
-                  <Icon name={'person'} color={color} size={size} />
+                  <Icon name={'contacts'} color={color} size={size} />
                ),
             }}
          />
@@ -62,11 +62,10 @@ const styles = StyleSheet.create({
    tabBarStyles: {
       position: 'absolute',
       borderRadius: 30,
-      marginVertical: 5,
-      marginHorizontal: 50,
+      marginVertical: 15,
       backgroundColors: Colors.background,
       height: 60,
-      width: 300,
       padding: 5,
+      marginHorizontal: 30,
    },
 });

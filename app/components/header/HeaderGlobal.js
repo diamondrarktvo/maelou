@@ -1,12 +1,19 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '_theme/Colors';
 
-export default function HeaderGlobal() {
+export default function HeaderGlobal({ navigation }) {
    return (
       <View style={styles.container}>
          <Text style={styles.titre_salutation}>Salut, Dama!</Text>
          <TouchableOpacity activeOpacity={0.7}>
-            <Text style={styles.icon_user}>D</Text>
+            <Text
+               style={styles.icon_user}
+               onPress={() => {
+                  navigation.navigate('Profil');
+               }}
+            >
+               D
+            </Text>
          </TouchableOpacity>
       </View>
    );

@@ -6,12 +6,12 @@ import { Icon } from '@rneui/themed';
 import HeaderGlobal from '_components/header/HeaderGlobal';
 import { Colors } from '_theme/Colors';
 
-export default function Home() {
+export default function Home({ navigation }) {
    return (
       <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
          <View style={styles.view_container}>
             <View style={styles.head_content}>
-               <HeaderGlobal />
+               <HeaderGlobal navigation={navigation} />
             </View>
 
             <View style={styles.body_content}>
@@ -24,17 +24,17 @@ export default function Home() {
                      plus fait nous savoir et on sera là pour vous aider.
                   </Text>
                </View>
-               <TouchableOpacity activeOpacity={0.8}>
-                  <View style={styles.shadow_3}>
-                     <View style={styles.shadow_2}>
-                        <View style={styles.shadow_1}>
+               <View style={styles.shadow_3}>
+                  <View style={styles.shadow_2}>
+                     <View style={styles.shadow_1}>
+                        <TouchableOpacity activeOpacity={0.8}>
                            <View style={styles.section_bouton}>
                               <Text style={styles.bouton_sos}>SOS</Text>
                            </View>
-                        </View>
+                        </TouchableOpacity>
                      </View>
                   </View>
-               </TouchableOpacity>
+               </View>
             </View>
          </View>
       </KeyboardAwareScrollView>

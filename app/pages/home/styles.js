@@ -23,10 +23,12 @@ export const styles = StyleSheet.create({
       fontWeight: '700',
       textAlign: 'center',
       marginVertical: 18,
+      color: Colors.black,
    },
    text_information: {
       textAlign: 'center',
       fontSize: 14,
+      color: Colors.grey,
    },
    section_bouton: {
       borderWidth: 2,

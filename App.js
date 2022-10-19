@@ -10,7 +10,7 @@ import Navigation from '_components/navigation/navigation';
 export default function App() {
    return (
       <SafeAreaProvider>
-         <StatusBar backgroundColor={Colors.white} />
+         <StatusBar backgroundColor={'transparent'} />
          <Navigation />
       </SafeAreaProvider>
    );
