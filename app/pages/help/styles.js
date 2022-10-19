@@ -5,8 +5,11 @@ export const styles = StyleSheet.create({
    view_container: {
       flex: 1,
       marginTop: 30,
-      paddingTop: 20,
       paddingHorizontal: 15,
       backgroundColor: Colors.background,
+   },
+   head_content: {
+      height: 45,
+      marginVertical: 10,
    },
 });

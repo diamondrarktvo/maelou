@@ -35,6 +35,14 @@ export default function Home({ navigation }) {
                      </View>
                   </View>
                </View>
+
+               <View style={styles.text_indication}>
+                  <Icon name={'warning'} color={Colors.orange} size={28} />
+                  <Text style={{ textAlign: 'center' }}>
+                     En cliquant sur "SOS" vous envoyerez des signals au poste
+                     de police et contacts d'urgence!!!!!
+                  </Text>
+               </View>
             </View>
          </View>
       </KeyboardAwareScrollView>

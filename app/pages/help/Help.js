@@ -1,14 +1,19 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Colors } from '_theme/Colors';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
 
-export default function Help() {
+import HeaderGlobal from '_components/header/HeaderGlobal';
+import { Colors } from '_theme/Colors';
+
+export default function Help({ navigation }) {
    return (
       <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
          <View style={styles.view_container}>
-            <Text>Help screen</Text>
+            <View style={styles.head_content}>
+               <HeaderGlobal navigation={navigation} />
+            </View>
+            <Text>Help page</Text>
          </View>
       </KeyboardAwareScrollView>
    );

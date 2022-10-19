@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
    },
    body_content: {
       flex: 2,
-      marginTop: 50,
+      marginTop: 40,
       marginBottom: 10,
       alignItems: 'center',
    },
@@ -72,7 +72,8 @@ export const styles = StyleSheet.create({
       borderRadius: 310,
       justifyContent: 'center',
       alignItems: 'center',
-      marginVertical: 50,
+      marginTop: 30,
+      marginBottom: 25,
    },
    /*FIn shadow bouton*/
 
@@ -80,5 +81,11 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 64,
       color: Colors.white,
+   },
+   text_indication: {
+      flexWrap: 'wrap',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'flex-end',
    },
 });
