@@ -1,13 +1,9 @@
-import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { configStack } from './configStack';
 //name util for stack navigation
 import { nameStackNavigation as nameNav } from '_utils';
 /*tab Navitation (top and bottom both)*/
-import BottomBarTabs from '_components/navigations/tabs/BottomBarTabs';
+import BottomBarTabs from '_components/navigation/tabs/BottomBarTabs';
 /*screen normal |screen indépendant à afficher|*/
-//from reusable
-import { ListingPage } from '_components/reusable';
 
 let Stack = createStackNavigator();
 export default function StackNavigation() {

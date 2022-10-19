@@ -6,7 +6,7 @@ import { Icon } from '@rneui/themed';
 
 export default function Profil() {
    return (
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
          <View style={styles.view_container}>
             <View style={styles.head_profil}>
                <Image

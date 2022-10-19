@@ -16,7 +16,11 @@ export default function BottomBarTabs() {
             headerShown: false,
             tabBarInactiveTintColors: Colors.black,
             tabBarActiveTintColors: Colors.blue,
-            tabBarLabelStyle: { fontSize: 13, textTransform: 'capitalize' },
+            tabBarLabelStyle: {
+               fontSize: 13,
+               textTransform: 'capitalize',
+               fontWeight: 'bold',
+            },
             tabBarStyle: styles.tabBarStyles,
          }}
       >
@@ -25,8 +29,8 @@ export default function BottomBarTabs() {
             component={Home}
             options={{
                tabBarLabel: 'Home',
-               tabBarIcon: ({ size, Colors }) => (
-                  <Icon name={'home'} Colors={Colors} size={size} />
+               tabBarIcon: ({ size, color }) => (
+                  <Icon name={'home'} color={color} size={size} />
                ),
             }}
          />
@@ -35,8 +39,8 @@ export default function BottomBarTabs() {
             component={Help}
             options={{
                tabBarLabel: 'Help',
-               tabBarIcon: ({ Colors, size }) => (
-                  <Icon name={'Search'} Colors={Colors} size={size} />
+               tabBarIcon: ({ size, color }) => (
+                  <Icon name={'help'} color={color} size={size} />
                ),
             }}
          />
@@ -45,8 +49,8 @@ export default function BottomBarTabs() {
             component={Profil}
             options={{
                tabBarLabel: 'Profile',
-               tabBarIcon: ({ Colors, size }) => (
-                  <Icon name={'person'} Colors={Colors} size={size} />
+               tabBarIcon: ({ size, color }) => (
+                  <Icon name={'person'} color={color} size={size} />
                ),
             }}
          />
@@ -58,7 +62,8 @@ const styles = StyleSheet.create({
    tabBarStyles: {
       position: 'absolute',
       borderRadius: 30,
-      margin: 10,
+      marginVertical: 5,
+      marginHorizontal: 20,
       backgroundColors: Colors.background,
       height: 60,
       padding: 5,
