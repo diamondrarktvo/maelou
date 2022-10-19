@@ -25,13 +25,11 @@ export default function Home() {
                   </Text>
                </View>
                <TouchableOpacity activeOpacity={0.8}>
-                  <View style={styles.shadow_4}>
-                     <View style={styles.shadow_3}>
-                        <View style={styles.shadow_2}>
-                           <View style={styles.shadow_1}>
-                              <View style={styles.section_bouton}>
-                                 <Text style={styles.bouton_sos}>SOS</Text>
-                              </View>
+                  <View style={styles.shadow_3}>
+                     <View style={styles.shadow_2}>
+                        <View style={styles.shadow_1}>
+                           <View style={styles.section_bouton}>
+                              <Text style={styles.bouton_sos}>SOS</Text>
                            </View>
                         </View>
                      </View>
