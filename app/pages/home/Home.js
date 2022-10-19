@@ -13,6 +13,31 @@ export default function Home() {
             <View style={styles.head_content}>
                <HeaderGlobal />
             </View>
+
+            <View style={styles.body_content}>
+               <View>
+                  <Text style={styles.big_titre_information}>
+                     Êtes-vous en danger en ce moment ?
+                  </Text>
+                  <Text style={styles.text_information}>
+                     Si vous vous sentez que vous êtes en danger, n'attendez
+                     plus fait nous savoir et on sera là pour vous aider.
+                  </Text>
+               </View>
+               <TouchableOpacity activeOpacity={0.8}>
+                  <View style={styles.shadow_4}>
+                     <View style={styles.shadow_3}>
+                        <View style={styles.shadow_2}>
+                           <View style={styles.shadow_1}>
+                              <View style={styles.section_bouton}>
+                                 <Text style={styles.bouton_sos}>SOS</Text>
+                              </View>
+                           </View>
+                        </View>
+                     </View>
+                  </View>
+               </TouchableOpacity>
+            </View>
          </View>
       </KeyboardAwareScrollView>
    );

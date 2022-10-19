@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
    },
    titre_salutation: {
       color: Colors.black,
-      fontSize: 32,
+      fontSize: 26,
       fontWeight: 'bold',
    },
    icon_user: {
