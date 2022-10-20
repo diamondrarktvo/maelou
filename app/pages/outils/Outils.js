@@ -13,7 +13,14 @@ export default function Outils({ navigation }) {
             <View style={styles.head_content}>
                <HeaderGlobal navigation={navigation} />
             </View>
-            <Text>outils page</Text>
+            <View style={styles.body_content}>
+               <View style={styles.banniere}>
+                  <Image
+                     style={styles.image_banniere}
+                     source={require('_images/banniere_3d.png')}
+                  />
+               </View>
+            </View>
          </View>
       </KeyboardAwareScrollView>
    );

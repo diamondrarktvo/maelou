@@ -12,4 +12,17 @@ export const styles = StyleSheet.create({
       height: 45,
       marginVertical: 10,
    },
+   body_content: {
+      flex: 2,
+   },
+   banniere: {
+      height: 200,
+      marginVertical: 18,
+      borderRadius: 20,
+      backgroundColor: Colors.secondary,
+   },
+   image_banniere: {
+      height: 180,
+      width: 200,
+   },
 });
