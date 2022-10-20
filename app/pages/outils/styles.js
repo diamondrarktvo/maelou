@@ -16,13 +16,22 @@ export const styles = StyleSheet.create({
       flex: 2,
    },
    banniere: {
-      height: 200,
+      height: 220,
       marginVertical: 18,
       borderRadius: 20,
       backgroundColor: Colors.secondary,
+      flexDirection: 'row',
+      alignItems: 'center',
+   },
+   texte_banniere: {
+      flex: 1,
+      marginLeft: 14,
+      fontSize: 20,
+      color: Colors.white,
    },
    image_banniere: {
-      height: 180,
-      width: 200,
+      flex: 1,
+      height: 270,
+      marginRight: 12,
    },
 });

@@ -15,11 +15,15 @@ export default function Outils({ navigation }) {
             </View>
             <View style={styles.body_content}>
                <View style={styles.banniere}>
+                  <Text style={styles.texte_banniere}>
+                     Vous trouvez ici des outils dont vous aurez besoin.....
+                  </Text>
                   <Image
                      style={styles.image_banniere}
                      source={require('_images/banniere_3d.png')}
                   />
                </View>
+               <View></View>
             </View>
          </View>
       </KeyboardAwareScrollView>
