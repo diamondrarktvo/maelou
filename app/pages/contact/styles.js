@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
    },
    icon: {
       top: -210,
-      right: -50,
+      right: -80,
    },
    bouton_ajout: {
       position: 'absolute',
