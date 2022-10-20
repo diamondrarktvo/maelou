@@ -34,4 +34,23 @@ export const styles = StyleSheet.create({
       height: 270,
       marginRight: 10,
    },
+   link_to_other_view: {
+      marginVertical: 20,
+      marginHorizontal: 8,
+   },
+   one_link_item: {
+      height: 80,
+      borderWidth: 1,
+      borderRadius: 28,
+      borderColor: Colors.secondary,
+      marginVertical: 5,
+      justifyContent: 'center',
+      paddingHorizontal: 16,
+   },
+   text_item: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: Colors.secondary,
+      textAlign: 'center',
+   },
 });

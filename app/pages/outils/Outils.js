@@ -23,7 +23,27 @@ export default function Outils({ navigation }) {
                      source={require('_images/banniere_3d.png')}
                   />
                </View>
-               <View></View>
+               <View style={styles.link_to_other_view}>
+                  <TouchableOpacity activeOpacity={0.7}>
+                     <View style={styles.one_link_item}>
+                        <Text style={styles.text_item}>
+                           Map (position des postes d'urgences)
+                        </Text>
+                     </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity activeOpacity={0.7}>
+                     <View style={styles.one_link_item}>
+                        <Text style={styles.text_item}>Numéro police</Text>
+                     </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity activeOpacity={0.7}>
+                     <View style={styles.one_link_item}>
+                        <Text style={styles.text_item}>Offline</Text>
+                     </View>
+                  </TouchableOpacity>
+               </View>
             </View>
          </View>
       </KeyboardAwareScrollView>
