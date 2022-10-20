@@ -11,7 +11,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { Colors } from '_theme/Colors';
 import styles from './styles';
 
-export default function Register() {
+export default function Register({ navigation }) {
    return (
       <KeyboardAwareScrollView>
          <View style={styles.view_container}>
@@ -72,7 +72,10 @@ export default function Register() {
                   </TouchableOpacity>
                   <Text style={{ textAlign: 'center' }}>
                      Vous avez déjà un compte?{' '}
-                     <Text style={{ color: Colors.blue, fontWeight: 'bold' }}>
+                     <Text
+                        style={{ color: Colors.blue, fontWeight: 'bold' }}
+                        onPress={() => navigation.navigate('Login')}
+                     >
                         Se connecter
                      </Text>
                   </Text>

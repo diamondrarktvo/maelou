@@ -1,10 +1,14 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Colors } from '_theme/Colors';
+import { useContext } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
+import { Contexte } from '_utils';
 
-export default function Profil() {
+export default function Profil({ navigation }) {
+   const { isSigned, setIsSigned } = useContext(Contexte);
+
    return (
       <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
          <View style={styles.view_container}>
@@ -64,9 +68,13 @@ export default function Profil() {
             <View style={styles.footer_profil}>
                <View style={styles.action_bouton}>
                   <TouchableOpacity
+                     activeOpacity={0.7}
                      style={[styles.bouton, { backgroundColor: Colors.orange }]}
                   >
-                     <Text style={[styles.action, { color: Colors.white }]}>
+                     <Text
+                        style={[styles.action, { color: Colors.white }]}
+                        onPress={() => setIsSigned(false)}
+                     >
                         Déconnexion
                      </Text>
                   </TouchableOpacity>

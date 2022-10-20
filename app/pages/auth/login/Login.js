@@ -1,9 +1,13 @@
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import { Contexte } from '_utils';
+import { useState, useContext } from 'react';
 import { Colors } from '_theme/Colors';
 
-export default function Login() {
+export default function Login({ navigation }) {
+   const { isSigned, setIsSigned } = useContext(Contexte);
+
    return (
       //utile pour regler le probleme de vue quand le clavier virtuelle s'ouvre
       <KeyboardAwareScrollView>
@@ -44,13 +48,17 @@ export default function Login() {
                            fontWeight: 'bold',
                            color: '#fff',
                         }}
+                        onPress={() => setIsSigned(true)}
                      >
                         Se connecter
                      </Text>
                   </TouchableOpacity>
                   <Text style={{ textAlign: 'center' }}>
                      Vous êtes nouveau ?{' '}
-                     <Text style={{ color: Colors.blue, fontWeight: 'bold' }}>
+                     <Text
+                        style={{ color: Colors.blue, fontWeight: 'bold' }}
+                        onPress={() => navigation.navigate('Register')}
+                     >
                         S'inscrire
                      </Text>
                   </Text>
