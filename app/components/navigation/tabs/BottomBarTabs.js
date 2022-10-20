@@ -4,7 +4,7 @@ import { Colors } from '_theme/Colors';
 import { Icon } from '@rneui/themed';
 
 //import screen bottom tab
-import { Home, Help, Contact } from '_pages';
+import { Home, Outils, Contact } from '_pages';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,10 +35,10 @@ export default function BottomBarTabs() {
             }}
          />
          <Tab.Screen
-            name="Help"
-            component={Help}
+            name="Outils"
+            component={Outils}
             options={{
-               tabBarLabel: 'Help',
+               tabBarLabel: 'Outils',
                tabBarIcon: ({ size, color }) => (
                   <Icon name={'help'} color={color} size={size} />
                ),

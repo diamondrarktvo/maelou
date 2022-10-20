@@ -83,7 +83,8 @@ export const styles = StyleSheet.create({
       borderRadius: 310,
       justifyContent: 'center',
       alignItems: 'center',
-      marginVertical: 30,
+      marginTop: 30,
+      marginBottom: 48,
    },
    /*Fin shadow bouton*/
 
