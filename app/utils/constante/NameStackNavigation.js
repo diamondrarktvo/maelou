@@ -3,4 +3,5 @@ export const nameStackNavigation = {
    login: 'Login',
    register: 'Register',
    profil: 'Profil',
+   map: 'Map',
 };

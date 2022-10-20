@@ -24,7 +24,12 @@ export default function Outils({ navigation }) {
                   />
                </View>
                <View style={styles.link_to_other_view}>
-                  <TouchableOpacity activeOpacity={0.7}>
+                  <TouchableOpacity
+                     activeOpacity={0.7}
+                     onPress={() => {
+                        navigation.navigate('Map');
+                     }}
+                  >
                      <View style={styles.one_link_item}>
                         <Text style={styles.text_item}>
                            Map (position des postes d'urgences)

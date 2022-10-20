@@ -5,5 +5,6 @@ import Profil from '_pages/profil/Profil';
 import Home from '_pages/home/Home';
 import Outils from '_pages/outils/Outils';
 import Contact from '_pages/contact/Contact';
+import Map from '_pages/map/Map';
 
-export { Home, Outils, Login, Register, Profil, Contact };
+export { Home, Outils, Login, Register, Profil, Contact, Map };
