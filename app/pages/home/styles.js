@@ -85,7 +85,7 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       marginVertical: 30,
    },
-   /*FIn shadow bouton*/
+   /*Fin shadow bouton*/
 
    bouton_sos: {
       textAlign: 'center',
