@@ -32,6 +32,6 @@ export const styles = StyleSheet.create({
    image_banniere: {
       flex: 1,
       height: 270,
-      marginRight: 12,
+      marginRight: 10,
    },
 });
