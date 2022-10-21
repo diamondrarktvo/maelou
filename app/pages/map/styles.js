@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
       backgroundColor: Colors.background,
    },
    map: {
-      height: 1000,
-      borderWidth: 2,
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
    },
 });
