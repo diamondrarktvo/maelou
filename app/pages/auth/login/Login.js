@@ -4,9 +4,6 @@ import styles from './styles';
 import { Contexte } from '_utils';
 import { useState, useContext, useCallback } from 'react';
 import { Colors } from '_theme/Colors';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
 import { AuthService } from '_utils/services/authService';
 
 export default function Login({ navigation }) {
@@ -19,19 +16,10 @@ export default function Login({ navigation }) {
       mot_de_passe: null,
    });
 
-   const onChangeField = (e) => {
-      let { text, target } = e.nativeEvent;
-      if (target === 33) {
-         setValueInput({ ...valueInput, numero_telephone: text });
-      } else {
-         setValueInput({ ...valueInput, mot_de_passe: text });
-      }
-   };
-
    const onSubmit = () => {
       setLoading(true);
       try {
-         LoginService.login(
+         AuthService.login(
             valueInput.numero_telephone,
             valueInput.mot_de_passe
          ).then((response) => {
@@ -72,7 +60,9 @@ export default function Login({ navigation }) {
                      style={styles.input}
                      keyboardType="email-address"
                      placeholder="Entrer votre numéro ..."
-                     onChange={(e) => onChangeField(e)}
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, numero_telephone: text })
+                     }
                   />
                   {erreur && errormessage !== 'Erreur survenu au serveur' && (
                      <Text style={{ color: Colors.orange, marginLeft: 15 }}>
@@ -85,7 +75,9 @@ export default function Login({ navigation }) {
                      keyboardType="default"
                      placeholder="Entrer votre mot de passe ..."
                      secureTextEntry={true}
-                     onChange={(e) => onChangeField(e)}
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, mot_de_passe: text })
+                     }
                   />
                   {erreur && errormessage !== 'Erreur survenu au serveur' && (
                      <Text style={{ color: Colors.orange, marginLeft: 15 }}>

@@ -12,9 +12,47 @@ import { useState, useContext } from 'react';
 import { Colors } from '_theme/Colors';
 import { Contexte } from '_utils';
 import styles from './styles';
+import { AuthService } from '_utils/services/authService';
 
 export default function Register({ navigation }) {
    const { isSigned, setIsSigned } = useContext(Contexte);
+   const [loading, setLoading] = useState(false);
+   const [erreur, setErreur] = useState(false);
+   const [errormessage, setErrorMessage] = useState('');
+   const [valueInput, setValueInput] = useState({
+      nom: null,
+      prenom: null,
+      adresse: null,
+      numero_telephone: null,
+      facebook: null,
+      mot_de_passe: null,
+   });
+
+   const onSubmit = () => {
+      setLoading(true);
+      try {
+         AuthService.register(
+            valueInput.nom,
+            valueInput.prenom,
+            valueInput.facebook,
+            valueInput.adresse,
+            valueInput.numero_telephone,
+            valueInput.mot_de_passe
+         ).then((response) => {
+            if (response.status !== 200) {
+               setLoading(false);
+               setErreur(true);
+               setErrorMessage('Email ou mot de passe incorrecte!');
+            }
+            console.log(response);
+            setLoading(false);
+         });
+      } catch (error) {
+         setErrorMessage('Erreur survenu au serveur');
+         setLoading(false);
+      }
+   };
+
    return (
       <KeyboardAwareScrollView>
          <View style={styles.view_container}>
@@ -38,37 +76,87 @@ export default function Register({ navigation }) {
                      style={styles.input}
                      keyboardType="default"
                      placeholder="Entrer votre nom ..."
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, nom: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
 
                   <TextInput
                      style={styles.input}
                      keyboardType="default"
                      placeholder="Entrer votre prénom ..."
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, prenom: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
 
                   <TextInput
                      style={styles.input}
                      keyboardType="default"
                      placeholder="Entrer votre adresse ..."
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, adresse: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
 
                   <TextInput
                      style={styles.input}
                      keyboardType="phone-pad"
                      placeholder="Entrer votre numéro mobile ..."
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, numero_telephone: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
 
                   <TextInput
                      style={styles.input}
                      keyboardType="url"
                      placeholder="Url vers votre profil facebook ..."
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, facebook: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
+
                   <TextInput
                      style={styles.input}
                      keyboardType="default"
                      placeholder="Entrer votre mot de passe ..."
                      secureTextEntry={true}
+                     onChangeText={(text) =>
+                        setValueInput({ ...valueInput, mot_de_passe: text })
+                     }
                   />
+                  {erreur && errormessage !== 'Erreur survenu au serveur' && (
+                     <Text style={{ color: Colors.orange, marginLeft: 15 }}>
+                        {errormessage}
+                     </Text>
+                  )}
+
                   <TouchableOpacity style={styles.bouton_connexion}>
                      <Text
                         style={{
@@ -77,11 +165,26 @@ export default function Register({ navigation }) {
                            fontWeight: 'bold',
                            color: Colors.white,
                         }}
-                        onPress={() => setIsSigned(true)}
+                        onPress={() => onSubmit()}
                      >
+                        {/* {loading ? 'Loading...' : "S'inscrire"} */}
                         S'inscrire
                      </Text>
                   </TouchableOpacity>
+
+                  {erreur && (
+                     <Text
+                        style={{
+                           color: Colors.orange,
+                           textAlign: 'center',
+                           marginBottom: 18,
+                           fontWeight: 'bold',
+                        }}
+                     >
+                        {errormessage}
+                     </Text>
+                  )}
+
                   <Text style={{ textAlign: 'center', marginBottom: 38 }}>
                      Vous avez déjà un compte?{' '}
                      <Text
