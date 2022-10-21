@@ -4,14 +4,14 @@ import * as Location from 'expo-location';
 export const useGetLocation = () => {
    //all states
    const [position, setPosition] = useState({ longitude: 0.0, latitude: 0.0 });
-   const [errorMsg, setErrorMsg] = useState(null);
+   const [errorMsgLocation, setErrorMsgLocation] = useState(null);
 
    //all effects
    useEffect(() => {
       (async () => {
          let { status } = await Location.requestForegroundPermissionsAsync();
          if (status !== 'granted') {
-            return setErrorMsg(
+            return setErrorMsgLocation(
                'Permission pour accéder au position est refuser!'
             );
          }
@@ -23,5 +23,5 @@ export const useGetLocation = () => {
          });
       })();
    }, []);
-   return { position, errorMsg };
+   return { position, errorMsgLocation };
 };

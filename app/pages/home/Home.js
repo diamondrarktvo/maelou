@@ -2,21 +2,21 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
-// import * as Location from 'expo-location';
 
 import HeaderGlobal from '_components/header/HeaderGlobal';
+import { Contexte } from '_utils';
 import { Colors } from '_theme/Colors';
-// import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useGetLocation } from '_utils/hooks/useGetLocation';
 
 export default function Home({ navigation }) {
    //all states
-   const { position, errorMsg } = useGetLocation();
+   const { position, errorMsgLocation } = useContext(Contexte);
 
    //all logics
    const getMyPosition = () => {
-      if (errorMsg) {
-         console.log(errorMsg);
+      if (errorMsgLocation) {
+         console.log(errorMsgLocation);
       } else {
          console.log(position);
       }
