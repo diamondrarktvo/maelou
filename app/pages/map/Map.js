@@ -11,7 +11,7 @@ export default function Map() {
       <View style={styles.view_container}>
          <MapView
             provider="google"
-            styles={[styles.map, StyleSheet.absoluteFillObject]}
+            style={[styles.map, StyleSheet.absoluteFillObject]}
             showsUserLocation={true}
          />
       </View>
