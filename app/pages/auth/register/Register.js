@@ -82,7 +82,7 @@ export default function Register({ navigation }) {
                         S'inscrire
                      </Text>
                   </TouchableOpacity>
-                  <Text style={{ textAlign: 'center' }}>
+                  <Text style={{ textAlign: 'center', marginBottom: 38 }}>
                      Vous avez déjà un compte?{' '}
                      <Text
                         style={{ color: Colors.blue, fontWeight: 'bold' }}

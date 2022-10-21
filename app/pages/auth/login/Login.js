@@ -35,12 +35,16 @@ export default function Login({ navigation }) {
             valueInput.numero_telephone,
             valueInput.mot_de_passe
          ).then((response) => {
+            if (response.status !== 200) {
+               setErreur(true);
+               setErrorMessage('Email ou mot de passe incorrecte!');
+            }
             console.log(response);
             setLoading(false);
          });
       } catch (error) {
-         setErreur(true);
          setErrorMessage('Erreur survenu au serveur');
+         setLoading(false);
       }
    };
 
