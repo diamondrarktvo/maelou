@@ -12,7 +12,7 @@ export default function App() {
    return (
       <ContexteProvider>
          <SafeAreaProvider>
-            <StatusBar backgroundColor={'transparent'} />
+            <StatusBar backgroundColor={'white'} />
             <Navigation />
          </SafeAreaProvider>
       </ContexteProvider>

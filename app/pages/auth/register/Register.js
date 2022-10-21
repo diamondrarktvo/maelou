@@ -10,6 +10,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 //import { Icon } from '@rneui/themed';
 import { useState, useContext } from 'react';
 import { Colors } from '_theme/Colors';
+import { Contexte } from '_utils';
 import styles from './styles';
 
 export default function Register({ navigation }) {
@@ -36,8 +37,27 @@ export default function Register({ navigation }) {
                   <TextInput
                      style={styles.input}
                      keyboardType="default"
+                     placeholder="Entrer votre nom ..."
+                  />
+
+                  <TextInput
+                     style={styles.input}
+                     keyboardType="default"
                      placeholder="Entrer votre prénom ..."
                   />
+
+                  <TextInput
+                     style={styles.input}
+                     keyboardType="default"
+                     placeholder="Entrer votre adresse ..."
+                  />
+
+                  <TextInput
+                     style={styles.input}
+                     keyboardType="phone-pad"
+                     placeholder="Entrer votre numéro mobile ..."
+                  />
+
                   <TextInput
                      style={styles.input}
                      keyboardType="url"
@@ -45,19 +65,8 @@ export default function Register({ navigation }) {
                   />
                   <TextInput
                      style={styles.input}
-                     keyboardType="phone-pad"
-                     placeholder="Entrer votre numéro mobile ..."
-                  />
-                  <TextInput
-                     style={styles.input}
                      keyboardType="default"
                      placeholder="Entrer votre mot de passe ..."
-                     secureTextEntry={true}
-                  />
-                  <TextInput
-                     style={styles.input}
-                     keyboardType="default"
-                     placeholder="Confirmer votre mot de passe ..."
                      secureTextEntry={true}
                   />
                   <TouchableOpacity style={styles.bouton_connexion}>
