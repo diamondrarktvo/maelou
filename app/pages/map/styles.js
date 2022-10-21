@@ -1,11 +1,15 @@
 import { Colors } from '_theme/Colors';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 export const styles = StyleSheet.create({
    view_container: {
       flex: 1,
-      marginTop: 30,
-      paddingHorizontal: 15,
+      alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor: Colors.background,
+   },
+   map: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
    },
 });

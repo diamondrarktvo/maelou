@@ -40,18 +40,20 @@ export default function Login({ navigation }) {
                      secureTextEntry={true}
                   />
                   <Text style={styles.forgotText}>Mot de passe oublié?</Text>
-                  <TouchableOpacity style={styles.bouton_connexion}>
-                     <Text
-                        style={{
-                           textAlign: 'center',
-                           fontSize: 16,
-                           fontWeight: 'bold',
-                           color: '#fff',
-                        }}
-                        onPress={() => setIsSigned(true)}
-                     >
-                        Se connecter
-                     </Text>
+                  <TouchableOpacity>
+                     <View style={styles.bouton_connexion}>
+                        <Text
+                           style={{
+                              textAlign: 'center',
+                              fontSize: 16,
+                              fontWeight: 'bold',
+                              color: '#fff',
+                           }}
+                           onPress={() => setIsSigned(true)}
+                        >
+                           Se connecter
+                        </Text>
+                     </View>
                   </TouchableOpacity>
                   <Text style={{ textAlign: 'center' }}>
                      Vous êtes nouveau ?{' '}

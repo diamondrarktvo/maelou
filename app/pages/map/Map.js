@@ -1,17 +1,19 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
 
-import HeaderGlobal from '_components/header/HeaderGlobal';
 import { Colors } from '_theme/Colors';
 
 export default function Map() {
    return (
-      <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
-         <View style={styles.view_container}>
-            <Text>Map screen</Text>
-         </View>
-      </KeyboardAwareScrollView>
+      <View style={styles.view_container}>
+         <MapView
+            provider="google"
+            styles={[styles.map, StyleSheet.absoluteFillObject]}
+            showsUserLocation={true}
+         />
+      </View>
    );
 }
