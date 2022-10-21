@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 //import { Icon } from '@rneui/themed';
+import { useState, useContext } from 'react';
 import { Colors } from '_theme/Colors';
 import styles from './styles';
 
 export default function Register({ navigation }) {
+   const { isSigned, setIsSigned } = useContext(Contexte);
    return (
       <KeyboardAwareScrollView>
          <View style={styles.view_container}>
@@ -66,6 +68,7 @@ export default function Register({ navigation }) {
                            fontWeight: 'bold',
                            color: Colors.white,
                         }}
+                        onPress={() => setIsSigned(true)}
                      >
                         S'inscrire
                      </Text>

@@ -2,11 +2,28 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
+// import * as Location from 'expo-location';
 
 import HeaderGlobal from '_components/header/HeaderGlobal';
 import { Colors } from '_theme/Colors';
+// import { useState, useContext, useEffect } from 'react';
+import { useGetLocation } from '_utils/hooks/useGetLocation';
 
 export default function Home({ navigation }) {
+   //all states
+   const { position, errorMsg } = useGetLocation();
+
+   //all logics
+   const getMyPosition = () => {
+      if (errorMsg) {
+         console.log(errorMsg);
+      } else {
+         console.log(position);
+      }
+   };
+
+   //all efects
+
    return (
       <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
          <View style={styles.view_container}>
@@ -32,7 +49,10 @@ export default function Home({ navigation }) {
                <View style={styles.shadow_3}>
                   <View style={styles.shadow_2}>
                      <View style={styles.shadow_1}>
-                        <TouchableOpacity activeOpacity={0.8}>
+                        <TouchableOpacity
+                           activeOpacity={0.8}
+                           onPress={() => getMyPosition()}
+                        >
                            <View style={styles.section_bouton}>
                               <Text style={styles.bouton_sos}>SOS</Text>
                            </View>
