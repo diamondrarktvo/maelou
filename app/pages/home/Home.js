@@ -8,17 +8,46 @@ import { Contexte } from '_utils';
 import { Colors } from '_theme/Colors';
 import { useState, useContext, useEffect } from 'react';
 import { useGetLocation } from '_utils/hooks/useGetLocation';
+import { AuthService } from '_utils/services/authService';
+import AlertService from "_utils/services/alertServices";
+
 
 export default function Home({ navigation }) {
    //all states
    const { position, errorMsgLocation } = useContext(Contexte);
 
    //all logics
-   const getMyPosition = () => {
+   const sendSOS = async () => {
+      let compteStr = await AuthService.getCurrentCompte();
+      let compte = JSON.parse(compteStr);
+      let id_Utilisateur = compte.id;
       if (errorMsgLocation) {
          console.log(errorMsgLocation);
       } else {
-         console.log(position);
+         AlertService.SendAlert(position.longitude, position.latitude, id_Utilisateur)
+            .then((response) => {
+               alert("Votre SOS d'urgence a été envoyé à la police!!");
+            })
+            .catch((er) => {
+               alert("Il y a une erreur survenue lors de l'envoie");
+            })
+      }
+   };
+
+   const sendHELP = async () => {
+      let compteStr = await AuthService.getCurrentCompte();
+      let compte = JSON.parse(compteStr);
+      let id_Utilisateur = compte.id;
+      if (errorMsgLocation) {
+         console.log(errorMsgLocation);
+      } else {
+         AlertService.SendHelp(position.longitude, position.latitude, id_Utilisateur)
+            .then((response) => {
+               alert("Votre demande d'aide a été envoyé à la police!!");
+            })
+            .catch((er) => {
+               alert("Il y a une erreur survenue lors de l'envoie");
+            })
       }
    };
 
@@ -51,7 +80,7 @@ export default function Home({ navigation }) {
                      <View style={styles.shadow_1}>
                         <TouchableOpacity
                            activeOpacity={0.8}
-                           onPress={() => getMyPosition()}
+                           onPress={() => sendSOS()}
                         >
                            <View style={styles.section_bouton}>
                               <Text style={styles.bouton_sos}>SOS</Text>
@@ -60,14 +89,6 @@ export default function Home({ navigation }) {
                      </View>
                   </View>
                </View>
-
-               {/*<View style={styles.text_indication}>
-                  <Icon name={'warning'} color={Colors.orange} size={28} />
-                  <Text style={{ textAlign: 'center' }}>
-                     En cliquant sur "SOS" vous envoyerez des signals au poste
-                     de police et contacts d'urgence!!!!!
-                  </Text>
-               </View>*/}
 
                <View>
                   <Text
@@ -86,7 +107,7 @@ export default function Home({ navigation }) {
                <View style={styles.shadow_6}>
                   <View style={styles.shadow_5}>
                      <View style={styles.shadow_4}>
-                        <TouchableOpacity activeOpacity={0.8}>
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => sendHELP()}>
                            <View style={styles.section_bouton_2}>
                               <Text style={styles.bouton_sos}>HELP</Text>
                            </View>

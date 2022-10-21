@@ -5,6 +5,8 @@ import { Contexte } from '_utils';
 import { useState, useContext, useCallback } from 'react';
 import { Colors } from '_theme/Colors';
 import { AuthService } from '_utils/services/authService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function Login({ navigation }) {
    const { isSigned, setIsSigned } = useContext(Contexte);
@@ -23,14 +25,21 @@ export default function Login({ navigation }) {
             valueInput.numero_telephone,
             valueInput.mot_de_passe
          ).then((response) => {
-            if (response.status !== 200) {
+            if (response.data.token) {
+               AsyncStorage.setItem('@compte', JSON.stringify(response.data));
+               setIsSigned(true);
+               setErreur(false);
+               setLoading(false);
+               navigation.navigate('Accueil');
+            }
+            else{
                setErreur(true);
+               setLoading(false);
                setErrorMessage('Email ou mot de passe incorrecte!');
             }
-            console.log(response);
-            setLoading(false);
          });
       } catch (error) {
+         setErreur(true);
          setErrorMessage('Erreur survenu au serveur');
          setLoading(false);
       }
@@ -58,7 +67,7 @@ export default function Login({ navigation }) {
                >
                   <TextInput
                      style={styles.input}
-                     keyboardType="email-address"
+                     keyboardType="phone-pad"
                      placeholder="Entrer votre numéro ..."
                      onChangeText={(text) =>
                         setValueInput({ ...valueInput, numero_telephone: text })
@@ -86,7 +95,7 @@ export default function Login({ navigation }) {
                   )}
 
                   <Text style={styles.forgotText}>Mot de passe oublié?</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => onSubmit()}>
                      <View style={styles.bouton_connexion}>
                         <Text
                            style={{
@@ -95,13 +104,12 @@ export default function Login({ navigation }) {
                               fontWeight: 'bold',
                               color: '#fff',
                            }}
-                           onPress={() => onSubmit()}
                         >
                            {loading ? 'Loading...' : 'Se connecter'}
                         </Text>
                      </View>
                   </TouchableOpacity>
-                  {erreur && (
+                  {erreur && errormessage === "Erreur survenu au serveur" && (
                      <Text
                         style={{
                            color: Colors.orange,

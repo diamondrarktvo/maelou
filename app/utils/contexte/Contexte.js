@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { useGetLocation } from '_utils/hooks/useGetLocation';
+import { AuthService } from '_utils/services/authService';
+
 
 export const Contexte = createContext();
 
@@ -9,7 +11,7 @@ export const ContexteProvider = (props) => {
 
    return (
       <Contexte.Provider
-         value={{ isSigned, setIsSigned, position, errorMsgLocation }}
+         value={{ isSigned, setIsSigned, position, errorMsgLocation}}
       >
          {props.children}
       </Contexte.Provider>

@@ -8,7 +8,7 @@ function login(numero_telephone, mot_de_passe) {
    })
       .then((response) => {
          if (response.data.token) {
-            AsyncStorage.setItem('compte', JSON.stringify(response.data));
+            AsyncStorage.setItem('@compte', JSON.stringify(response.data));
          }
          return response.data;
       })
@@ -17,8 +17,12 @@ function login(numero_telephone, mot_de_passe) {
       });
 }
 
+function getCurrentCompte(){
+   return AsyncStorage.getItem('@compte');
+}
+
 function logout() {
-   return AsyncStorage.removeItem('compte');
+   return AsyncStorage.removeItem('@compte');
 }
 
 function register(
@@ -43,4 +47,5 @@ export const AuthService = {
    login,
    logout,
    register,
+   getCurrentCompte
 };

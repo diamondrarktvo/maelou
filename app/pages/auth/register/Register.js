@@ -25,7 +25,7 @@ export default function Register({ navigation }) {
       adresse: null,
       numero_telephone: null,
       facebook: null,
-      mot_de_passe: null,
+      mot_de_passe: null
    });
 
    const onSubmit = () => {
@@ -37,17 +37,21 @@ export default function Register({ navigation }) {
             valueInput.facebook,
             valueInput.adresse,
             valueInput.numero_telephone,
-            valueInput.mot_de_passe
+            valueInput.mot_de_passe,
          ).then((response) => {
-            if (response.status !== 200) {
+            if(response.data.token){
+               setIsSigned(true);
                setLoading(false);
+               setErreur(false);
+               navigation.navigate('Accueil');
+            }else {
                setErreur(true);
-               setErrorMessage('Email ou mot de passe incorrecte!');
+               setLoading(false);
+               setErrorMessage('Erreur à la création du compte');
             }
-            console.log(response);
-            setLoading(false);
          });
       } catch (error) {
+         setErreur(true);
          setErrorMessage('Erreur survenu au serveur');
          setLoading(false);
       }
@@ -157,7 +161,7 @@ export default function Register({ navigation }) {
                      </Text>
                   )}
 
-                  <TouchableOpacity style={styles.bouton_connexion}>
+                  <TouchableOpacity style={styles.bouton_connexion} onPress={() => onSubmit()}>
                      <Text
                         style={{
                            textAlign: 'center',
@@ -165,14 +169,13 @@ export default function Register({ navigation }) {
                            fontWeight: 'bold',
                            color: Colors.white,
                         }}
-                        onPress={() => onSubmit()}
+                        
                      >
-                        {/* {loading ? 'Loading...' : "S'inscrire"} */}
-                        S'inscrire
+                        {loading ? 'Loading...' : "S'inscrire"}
                      </Text>
                   </TouchableOpacity>
 
-                  {erreur && (
+                  {erreur && errormessage === "Erreur survenu au serveur" && (
                      <Text
                         style={{
                            color: Colors.orange,

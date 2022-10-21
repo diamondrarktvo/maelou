@@ -5,9 +5,18 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { styles } from './styles';
 import { Icon } from '@rneui/themed';
 import { Contexte } from '_utils';
+import { AuthService } from '_utils/services/authService';
+
 
 export default function Profil({ navigation }) {
    const { isSigned, setIsSigned } = useContext(Contexte);
+   const compte =  AuthService.getCurrentCompte();
+
+
+   const logout = async () => {
+      await AuthService.logout();
+      setIsSigned(false);
+   }
 
    return (
       <KeyboardAwareScrollView style={{ backgroundColor: Colors.background }}>
@@ -73,7 +82,7 @@ export default function Profil({ navigation }) {
                   >
                      <Text
                         style={[styles.action, { color: Colors.white }]}
-                        onPress={() => setIsSigned(false)}
+                        onPress={() => logout()}
                      >
                         Déconnexion
                      </Text>
