@@ -25,7 +25,7 @@ export default function Login({ navigation }) {
             valueInput.numero_telephone,
             valueInput.mot_de_passe
          ).then((response) => {
-            if (response.data.token) {
+            if (response.data) {
                AsyncStorage.setItem('@compte', JSON.stringify(response.data));
                setIsSigned(true);
                setErreur(false);

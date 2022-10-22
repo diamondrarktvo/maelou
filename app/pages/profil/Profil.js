@@ -26,12 +26,12 @@ export default function Profil({ navigation }) {
                   style={styles.profil_image}
                   source={require('_images/profil.png')}
                />
-               <Text style={styles.user_name}>Diamondra</Text>
+               <Text style={styles.user_name}>Dama</Text>
             </View>
             <View style={styles.information_profil}>
                <Text style={styles.label_information_profil}>Prénom : </Text>
                <View style={styles.view_value_information}>
-                  <Text style={styles.value_information_profil}>Diamondra</Text>
+                  <Text style={styles.value_information_profil}>Dama</Text>
                   <Icon name={'verified'} color={'green'} />
                </View>
 
@@ -68,7 +68,7 @@ export default function Profil({ navigation }) {
                </Text>
                <View style={styles.view_value_information}>
                   <Text style={styles.value_information_profil}>
-                     MotDePasse
+                     amada10
                   </Text>
                   <Icon name={'verified'} color={'green'} />
                </View>

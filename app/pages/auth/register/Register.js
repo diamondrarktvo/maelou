@@ -39,7 +39,7 @@ export default function Register({ navigation }) {
             valueInput.numero_telephone,
             valueInput.mot_de_passe,
          ).then((response) => {
-            if(response.data.token){
+            if(response.data){
                setIsSigned(true);
                setLoading(false);
                setErreur(false);

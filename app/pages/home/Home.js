@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
       if (errorMsgLocation) {
          console.log(errorMsgLocation);
       } else {
-         AlertService.SendAlert(position.longitude, position.latitude, id_Utilisateur)
+         AlertService.SendAlert(position.longitude, position.latitude, id_Utilisateur, 1)
             .then((response) => {
                alert("Votre SOS d'urgence a été envoyé à la police!!");
             })
@@ -41,7 +41,7 @@ export default function Home({ navigation }) {
       if (errorMsgLocation) {
          console.log(errorMsgLocation);
       } else {
-         AlertService.SendHelp(position.longitude, position.latitude, id_Utilisateur)
+         AlertService.SendHelp(position.longitude, position.latitude, id_Utilisateur, 2)
             .then((response) => {
                alert("Votre demande d'aide a été envoyé à la police!!");
             })
