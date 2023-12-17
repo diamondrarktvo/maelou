@@ -5,8 +5,7 @@ import { Contexte } from '_utils';
 import { useState, useContext, useCallback } from 'react';
 import { Colors } from '_theme/Colors';
 import { AuthService } from '_utils/services/authService';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Login({ navigation }) {
    const { isSigned, setIsSigned } = useContext(Contexte);
@@ -20,7 +19,7 @@ export default function Login({ navigation }) {
 
    const onSubmit = () => {
       setLoading(true);
-      try {
+      /*/try {
          AuthService.login(
             valueInput.numero_telephone,
             valueInput.mot_de_passe
@@ -31,8 +30,7 @@ export default function Login({ navigation }) {
                setErreur(false);
                setLoading(false);
                navigation.navigate('Accueil');
-            }
-            else{
+            } else {
                setErreur(true);
                setLoading(false);
                setErrorMessage('Email ou mot de passe incorrecte!');
@@ -42,7 +40,8 @@ export default function Login({ navigation }) {
          setErreur(true);
          setErrorMessage('Erreur survenu au serveur');
          setLoading(false);
-      }
+      }*/
+      navigation.navigate('Accueil');
    };
 
    return (
@@ -109,7 +108,7 @@ export default function Login({ navigation }) {
                         </Text>
                      </View>
                   </TouchableOpacity>
-                  {erreur && errormessage === "Erreur survenu au serveur" && (
+                  {erreur && errormessage === 'Erreur survenu au serveur' && (
                      <Text
                         style={{
                            color: Colors.orange,

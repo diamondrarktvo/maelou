@@ -13,7 +13,7 @@ let Stack = createStackNavigator();
 export default function StackNavigation() {
    const { isSigned, setIsSigned } = useContext(Contexte);
 
-   return isSigned ? (
+   return (
       <Stack.Navigator initialRouteName={nameNav.home}>
          <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={nameNav.home} component={BottomBarTabs} />
@@ -26,9 +26,7 @@ export default function StackNavigation() {
          <Stack.Group screenOptions={configStack.screenOptionsForHeaderShown}>
             <Stack.Screen name={nameNav.map} component={Map} />
          </Stack.Group>
-      </Stack.Navigator>
-   ) : (
-      <Stack.Navigator initialRouteName={nameNav.login}>
+
          <Stack.Group screenOptions={configStack.screenOptionsForHeaderDisable}>
             <Stack.Screen name={nameNav.login} component={Login} />
             <Stack.Screen name={nameNav.register} component={Register} />

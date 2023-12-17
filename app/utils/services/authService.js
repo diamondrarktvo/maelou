@@ -1,5 +1,5 @@
 import { RouteAxios } from '_utils/services/urlAxios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function login(numero_telephone, mot_de_passe) {
    return RouteAxios.post('/user/login', {
@@ -17,7 +17,7 @@ function login(numero_telephone, mot_de_passe) {
       });
 }
 
-function getCurrentCompte(){
+function getCurrentCompte() {
    return AsyncStorage.getItem('@compte');
 }
 
@@ -47,5 +47,5 @@ export const AuthService = {
    login,
    logout,
    register,
-   getCurrentCompte
+   getCurrentCompte,
 };
